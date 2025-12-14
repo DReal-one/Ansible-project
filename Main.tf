@@ -57,6 +57,10 @@ resource "aws_instance" "ansible_nodes" {
               sudo apt update -y
               sudo apt install python3 -y
               EOF
+  timeouts {
+    create = "10m"
+    delete = "5m"
+  }
 
 
 
@@ -87,7 +91,7 @@ resource "aws_instance" "ansible_nodes" {
     user        = "ubuntu"
     private_key = file("./${var.key_name}.pem")
     host        = self.public_ip
-  }
+    timeout = "5m"
 }
 
 
