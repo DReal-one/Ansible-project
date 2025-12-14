@@ -61,7 +61,7 @@ resource "aws_instance" "ansible_nodes" {
     create = "10m"
     delete = "5m"
   }
-
+}
 
 
   #----------------------------------------------------------------
