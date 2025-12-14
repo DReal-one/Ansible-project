@@ -36,7 +36,7 @@ resource "aws_instance" "ansible_controller" {
               sudo yum update -y
               sudo apt install ansible python3 -y
               EOF
-    depends_on = {aws_instance.ansible_nodes}
+    depends_on = [aws_instance.ansible_nodes]
 }
 
 #----------------------------------------------------------------
