@@ -63,7 +63,8 @@ resource "aws_instance" "ansible_nodes" {
   }
 }
 
-
+resource "null_resource" "controller_setup" {
+  depends_on = [aws_instance.ansible_controller]
   #----------------------------------------------------------------
   # COPY FILES TO ANSIBLE CONTROLLER SERVER
   #----------------------------------------------------------------
@@ -93,5 +94,5 @@ resource "aws_instance" "ansible_nodes" {
     host        = self.public_ip
     timeout = "5m"
 }
-
+}
 
