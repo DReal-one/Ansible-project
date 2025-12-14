@@ -1,4 +1,5 @@
 PRE-REQUISITES
+
 AWS account
 EC2 machine with desired intsnace type
 Install Terraform
