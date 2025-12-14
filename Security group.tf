@@ -1,4 +1,11 @@
 #----------------------------------------------------------------
+# FETCH YOUR CURRENT PUBLIC IP
+#----------------------------------------------------------------
+data "http" "myip" {
+  url = "https://checkip.amazonaws.com/"
+}
+
+#----------------------------------------------------------------
 # SECURITY GROUP TO ALLOW SSH
 #----------------------------------------------------------------
 resource "aws_security_group" "allow_ssh" {
@@ -11,7 +18,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/32"] # replace with your actual public IP
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"] # Allow only your current IP
   }
 
   egress {

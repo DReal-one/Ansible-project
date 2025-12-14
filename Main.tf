@@ -34,7 +34,7 @@ resource "aws_instance" "ansible_controller" {
   }
   user_data  = <<-EOF
               #!/bin/bash
-              sudo yum update -y
+              sudo apt update -y
               sudo apt install ansible python3 -y
               EOF
   depends_on = [aws_instance.ansible_nodes]
