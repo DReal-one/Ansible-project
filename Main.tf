@@ -91,7 +91,7 @@ resource "null_resource" "controller_setup" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("./${var.key_name}.pem")
-    host        = self.public_ip
+    host        = aws_instance.ansible_controller.public_ip
     timeout = "5m"
 }
 }
