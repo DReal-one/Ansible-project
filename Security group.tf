@@ -4,7 +4,7 @@
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
-  vpc_id      = var.vpc_id   # replace with your VPC ID variable or hardcode
+  vpc_id      = var.vpc_id # replace with your VPC ID variable or hardcode
 
   ingress {
     description = "SSH from my IP"

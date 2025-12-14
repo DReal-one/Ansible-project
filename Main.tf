@@ -49,7 +49,7 @@ resource "aws_instance" "ansible_nodes" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   associate_public_ip_address = true
-   vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
+  vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
 
   tags = {
     Name = "Ansible-Node-${count.index + 1}"
@@ -95,8 +95,8 @@ resource "null_resource" "controller_setup" {
     user        = "ubuntu"
     private_key = file("./${var.key_name}.pem")
     host        = aws_instance.ansible_controller.public_ip
-    timeout = "5m"
-}
+    timeout     = "5m"
+  }
 
 }
 
