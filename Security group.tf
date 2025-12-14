@@ -18,7 +18,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.body)}/32"] # Allow only your current IP
+   cidr_blocks = ["${chomp(data.http.myip.response_body)}/32"] # Allow only your current IP
   }
 
   egress {
