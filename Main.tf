@@ -43,7 +43,7 @@ resource "aws_instance" "ansible_controller" {
 # CREATE ANSIBLE NODES
 #----------------------------------------------------------------
 resource "aws_instance" "ansible_nodes" {
-  count                       = var.severcount
+  count                       = var.servercount
   ami                         = var.amiid
   instance_type               = var.instance_type
   key_name                    = var.key_name
