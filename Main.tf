@@ -9,7 +9,7 @@ provider "aws" {
 # CREATE INVENTORY FILE
 #----------------------------------------------------------------
 resource "local_file" "ansible_inventory" {
-  content = templatefile("templates/hosts.tpl",
+  content = templatefile("template/hosts.tpl",
     {
       key_name = var.key_name,
       servers  = aws_instance.ansible_nodes.*.public_ip
