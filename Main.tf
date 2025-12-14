@@ -57,7 +57,7 @@ resource "aws_instance" "ansible_nodes" {
               sudo apt update -y
               sudo apt install python3 -y
               EOF
-}
+
 
 
 #----------------------------------------------------------------
@@ -88,6 +88,6 @@ provisioner "file" {
       private_key = file("./${var.key_name}.pem")
       host        = self.public_ip
     }
-
+}
 
 
