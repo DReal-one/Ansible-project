@@ -1,3 +1,8 @@
+variable "vpc_id" {
+  description = "VPC ID where resources will be created"
+  default     = data.aws_vpc.default.id
+}
+
 variable "amiid" {
   description = "AMI ID for the EC2 instance"
   default = "ami-0ecb62995f68bb549"
@@ -19,3 +24,4 @@ variable "servercount" {
   type        = number
   default     = 1
 }
+
